@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детский лагерь "Green Camp"</title>
+    <style>
+        /* --- Подключение шрифтов --- */
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Geologica:wght@300;400;700&display=swap');
+
+        /* --- Глобальные переменные и стили --- */
+        :root {
+            --primary-color: rgb(48, 213, 200);   /* Бирюзовый */
+            --secondary-color: rgb(20, 72, 119); /* Темно-синий */
+            --accent-color-1: rgb(135, 206, 250);/* Голубой */
+            --accent-color-2: rgb(255, 208, 43); /* Желтый */
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --section-bg-color: #f9f9f9;
+
+            --font-main: 'Geologica', sans-serif;
+            --font-text: 'Atkinson Hyperlegible', sans-serif;
+        }
+
+        /* --- Плавная прокрутка --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-text);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* --- Контейнер и секции --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--section-bg-color);
+        }
+
+        /* --- Заголовки --- */
+        h1, h2, h3 {
+            font-family: var(--font-main);
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* --- Навигационное меню --- */
+        .main-header {
+            background-color: transparent;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        
+        .logo {
+            font-family: var(--font-main);
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .logo-subtitle {
+            font-size: 0.7em;
+            font-family: var(--font-text);
+            color: var(--secondary-color);
+            margin-top: -2px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu ul { margin: 0; padding: 0; list-style: none; display: flex; }
+        .nav-menu li { margin-left: 35px; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1em;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover { color: var(--primary-color); }
+        .menu-toggle { display: none; }
+
+        /* --- Главный раздел --- */
+        #home {
+            background: linear-gradient(rgba(20, 72, 119, 0.1), rgba(20, 72, 119, 0.1)), url('images/01.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0;
+        }
+
+        .hero-content {
+            background-color: rgba(20, 72, 119, 0.85);
+            padding: 30px 40px;
+            border-radius: 15px;
+            max-width: 90%;
+            margin-bottom: 10vh;
+        }
+        
+        .hero-title-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: var(--bg-color);
+        }
+
+        .hero-content .slogan {
+            font-size: 1.3em;
+            margin: 0;
+            color: var(--accent-color-2);
+            font-family: var(--font-text);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 30px;
+            background-color: var(--accent-color-2);
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background-color: #ffd83b;
+        }
+
+        /* --- Галерея --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item { overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: white; text-align: center; }
+        .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(20, 72, 119, 0.2); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .gallery-item .caption { font-family: var(--font-main); font-weight: bold; padding: 15px; color: var(--secondary-color); }
+
+        /* --- Описание --- */
+        .description-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .description-card {
+            background: #fff;
+            padding: 40px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .description-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+        .description-card ul { list-style: none; padding-left: 0; }
+        .description-card li { padding-left: 25px; position: relative; margin-bottom: 10px; }
+        .description-card li::before { content: '✔'; position: absolute; left: 0; color: var(--primary-color); font-weight: bold; }
+
+        /* --- Таблица смен --- */
+        #schedule { background-color: var(--secondary-color); color: white; }
+        #schedule h2 { color: white; }
+        #schedule h2::after { background-color: var(--accent-color-2); }
+        .schedule-wrapper { background-color: var(--secondary-color); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); padding: 5px; }
+        .schedule-table { width: 100%; border-collapse: collapse; color: white; }
+        .schedule-table th, .schedule-table td { padding: 20px; }
+        .schedule-table thead { background-color: var(--primary-color); color: var(--secondary-color); font-family: var(--font-main); }
+        .schedule-table thead th:first-child { border-radius: 8px 0 0 0; }
+        .schedule-table thead th:last-child { border-radius: 0 8px 0 0; }
+        .schedule-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .schedule-table tbody tr:last-child { border-bottom: none; }
+        .schedule-table th:nth-child(1), .schedule-table td:nth-child(1) { text-align: left; }
+        .schedule-table th:nth-child(2), .schedule-table td:nth-child(2) { text-align: left; }
+        .schedule-table th:nth-child(3), .schedule-table td:nth-child(3) { text-align: right; }
+        .schedule-table td:nth-child(2) { color: #ffffff; font-weight: normal; }
+        .schedule-table td:nth-child(3) { font-weight: bold; color: var(--accent-color-2); }
+        .info-box { background-color: white; color: var(--text-color); padding: 30px; margin-top: 5px; border-top: 4px solid var(--primary-color); border-radius: 0 0 8px 8px; }
+        .info-box h3 { color: var(--secondary-color); }
+
+        /* --- Контакты --- */
+        #contact { background-color: var(--accent-color-2); color: var(--text-color); }
+        #contact h2 { color: var(--secondary-color); }
+        #contact h2::after { background-color: var(--secondary-color); }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: center; }
+        .contact-card { background-color: rgba(255, 255, 255, 0.7); padding: 30px; border-radius: 10px; }
+        .contact-card h3 { color: var(--secondary-color); margin-top: 0; }
+        .contact-card a { color: var(--secondary-color); font-weight: bold; text-decoration: none; transition: color 0.3s ease; }
+        .contact-card a:hover { color: var(--primary-color); }
+        .contact-card p { margin: 10px 0; line-height: 1.8; color: var(--secondary-color); }
+
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; } h2 { font-size: 2em; } 
+            .hero-content h1 { font-size: 2em; }
+            .hero-content .slogan { font-size: 1em; }
+            section { padding: 60px 0; }
+            .nav-menu { display: none; flex-direction: column; width: 100%; background-color: white; position: absolute; top: 70px; left: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+            .nav-menu.active { display: flex; }
+            .nav-menu ul { flex-direction: column; width: 100%; }
+            .nav-menu li { margin: 0; text-align: center; }
+            .nav-menu a { padding: 15px; display: block; width: 100%; box-sizing: border-box; }
+            .nav-menu a::after { display: none; }
+            .menu-toggle { display: flex; flex-direction: column; cursor: pointer; }
+            .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--secondary-color); margin: 4px 0; transition: 0.4s; }
+            .schedule-table th, .schedule-table td { padding: 15px 10px; font-size: 0.9em;}
+            .hero-content { margin-bottom: 5vh; max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header" id="mainHeader">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <a href="#home" class="logo">Green<span>Camp</span></a>
+                <span class="logo-subtitle">детский лагерь</span>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#program">О лагере</a></li>
+                    <li><a href="#schedule">Смены и цены</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="hero-content">
+                <div class="hero-title-line">
+                    <h1>Green Camp</h1>
+                    <p class="slogan">«Активность во всём!» - наш девиз для яркого лета</p>
+                </div>
+                <a href="#program" class="cta-button">Узнать больше</a>
+            </div>
+        </section>
+
+        <section id="program">
+            <div class="container">
+                <h2>Детский и молодежный лагерь<br>«GREEN CAMP»</h2>
+                <div class="description-grid">
+                    <div class="description-card">
+                        <h3>Расположение</h3>
+                        <p>В 2025 году «GREEN CAMP» расположится на территории детского реабилитационно-оздоровительного центра «Жемчужина» в сосновом бору и берёзовой роще на берегу живописного озера Щибот в 160 км от Минска в Витебском направлении (Лепель).</p>
+                    </div>
+                    <div class="description-card">
+                        <h3>Философия лагеря</h3>
+                        <p>«GREEN CAMP» — это возможность замечательно провести время, получить массу позитивных эмоций и ярких воспоминаний о лете, зарядиться энергией на весь предстоящий учебный год. В нашем лагере каждый найдёт себе занятие по душе: детей ждут игровые комнаты, спортивные и игровые площадки, спортзал, стадион, пляж с надувными аттракционами, зона отдыха на берегу озера, беседки и костровые площадки, бассейн, киноконцертный зал и даже библиотека. Спортивные мероприятия, концерты, дискотеки, конкурсы, экскурсии и многочисленные занятия по интересам не оставят равнодушными ни одного нашего гостя. «GREEN CAMP» — лагерь с активным развлекательным отдыхом на свежем воздухе, комфортными условиями проживания, сбалансированным шестиразовым питанием и санаторным лечением.</p>
+                        <p><strong>Возраст наших гостей: 9 - 14 лет. Продолжительность смены - 13 дней.</strong></p>
+                    </div>
+                     <div class="description-card">
+                        <h3>Досуг</h3>
+                        <p>Наша цель — сформировать позитивную комфортную среду для каждого ребенка. Для организации досуга в Green Camp имеется современная материальная база:</p>
+                        <ul>
+                           <li><strong>Спортивно-оздоровительный комплекс:</strong> спортзал, стадион, спортивный городок.</li>
+                           <li><strong>Для культурного отдыха:</strong> библиотека, читальный зал, дискозал, киноконцертный зал, выставочная галерея, комнаты кружковой работы.</li>
+                           <li><strong>Комфорт:</strong> на каждом этаже спальных корпусов оборудованы игровые комнаты.</li>
+                           <li><strong>Природа:</strong> на берегу живописного озера с прилегающим островом благоустроенный пляж со спасателем и дежурной медсестрой.</li>
+                           <li><strong>Оснащение:</strong> всё необходимое спортивное оборудование, аудио-, видео- и мультимедиа аппаратура, сценические костюмы, игровой материал для ребят различных возрастных категорий.</li>
+                           <li><strong>Связь:</strong> БЕСПЛАТНЫЙ Wi-Fi с ограниченной зоной доступа.</li>
+                        </ul>
+                    </div>
+                    <div class="description-card">
+                        <h3>Размещение и проживание</h3>
+                        <p>Размещение происходит в трёхэтажном спальном корпусе в двух- и трехместных номерах с удобствами в блоке (душ, умывальник, туалет). На каждом этаже находятся игровые и отрядные комнаты, сушильная и гладильная комната, оборудованная автоматической стиральной машиной, телевизоры, холодильник, бактерицидный уф-очиститель воздуха.</p>
+                    </div>
+                     <div class="description-card">
+                        <h3>Питание и лечение</h3>
+                        <p>Шестиразовое диетическое питание основано на использовании только натуральных продуктов.</p>
+                        <p>После заселения дети проходят осмотр врача, получают санаторные книжки, в которых индивидуально для каждого прописываются лечебные процедуры с учетом состояния здоровья ребёнка на основании выписки из амбулаторной карты. В лечебном корпусе дети посещают бассейн, бювет с минеральной водой, водолечебные процедуры, соляную пещеру, магнитотерапию, светолечение, электролечение, пьют кислородные коктейли.</p>
+                        <p><strong>ВОДНЫЕ ПРОЦЕДУРЫ:</strong> БАССЕЙН и ПЛЯЖ – посещение согласно графика.</p>
+                    </div>
+                    <div class="description-card">
+                        <h3>Безопасность и персонал</h3>
+                        <p>Территория комплекса (8 га) полностью огорожена, круглосуточно работает охрана. Осуществляется контроль входа и выхода детей с территории лагеря. С детьми работает команда опытных педагогов, вожатых и аниматоров, прошедших специальную подготовку.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule">
+            <div class="container">
+                <h2>График смен и стоимость</h2>
+                <div class="schedule-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Смена</th>
+                                <th>Даты (13 дней / 12 ночей)</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 смена</td>
+                                <td>08.06 – 20.06</td>
+                                <td>1 390 рублей</td>
+                            </tr>
+                             <tr>
+                                <td>2 смена</td>
+                                <td>22.06 – 04.07</td>
+                                <td rowspan="4">1 500 рублей</td>
+                            </tr>
+                            <tr>
+                                <td>3 смена</td>
+                                <td>06.07 – 18.07 (или 07.07 – 19.07)</td>
+                            </tr>
+                            <tr>
+                                <td>4 смена</td>
+                                <td>20.07 – 01.08 (или 21.07 – 02.08)</td>
+                            </tr>
+                             <tr>
+                                <td>5 смена</td>
+                                <td>03.08 – 15.08</td>
+                            </tr>
+                            <tr>
+                                <td>6 смена</td>
+                                <td>16.08 – 29.08 (или 17.08 - 28.08)</td>
+                                <td>1 390 рублей</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="info-box">
+                        <h3>Условия оплаты и документы</h3>
+                        <p><strong>1 этап – Бронирование:</strong> предоплата 400 рублей. <br><strong>2 этап – Полная оплата:</strong> за 3 недели до выезда.</p>
+                        <p><strong>В стоимость входит:</strong> проезд автобусом Минск – Жемчужина - Минск; проживание; питание – 6-ти разовое; санаторное лечение; пользование бассейном и оборудованным пляжем санатория; спортивные и развлекательные мероприятия, дискотеки; пользование спортивными площадками; две автобусные экскурсии с входными билетами (в Березинский биосферный заповедник и г. Полоцк); услуги педагогов и аниматора.</p>
+                        <p><strong>Необходимые документы:</strong> выписка из амбулаторной карты с отметкой о возможности посещать бассейн (действует один месяц и выдаётся педиатром).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2>Галерея</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="images/19.jpg" alt="Территория лагеря (вид сверху)"><div class="caption">Территория лагеря</div></div>
+                    <div class="gallery-item"><img src="images/11.jpg" alt="Главный корпус"><div class="caption">Главный корпус</div></div>
+                    <div class="gallery-item"><img src="images/02.jpg" alt="Вид на озеро"><div class="caption">Вид на озеро</div></div>
+                    <div class="gallery-item"><img src="images/03.jpg" alt="Пирс у озера"><div class="caption">Пирс</div></div>
+                    <div class="gallery-item"><img src="images/04.jpg" alt="Катание на лодке"><div class="caption">Активности на воде</div></div>
+                    <div class="gallery-item"><img src="images/05.jpg" alt="Пляж"><div class="caption">Пляжный отдых</div></div>
+                    <div class="gallery-item"><img src="images/07.jpg" alt="Командные игры"><div class="caption">Спорт и команда</div></div>
+                    <div class="gallery-item"><img src="images/08.jpg" alt="Бассейн"><div class="caption">Бассейн</div></div>
+                    <div class="gallery-item"><img src="images/06.jpg" alt="Спортивная площадка"><div class="caption">Спортплощадка</div></div>
+                    <div class="gallery-item"><img src="images/18.jpeg" alt="Игровая площадка"><div class="caption">Игровая площадка</div></div>
+                    <div class="gallery-item"><img src="images/09.jpg" alt="Соляная пещера"><div class="caption">Соляная пещера</div></div>
+                    <div class="gallery-item"><img src="images/10.jpg" alt="Оздоровительные процедуры"><div class="caption">Оздоровление</div></div>
+                    <div class="gallery-item"><img src="images/12.jpeg" alt="Библиотека"><div class="caption">Библиотека</div></div>
+                    <div class="gallery-item"><img src="images/13.jpeg" alt="Столовая"><div class="caption">Столовая</div></div>
+                    <div class="gallery-item"><img src="images/14.jpeg" alt="Жилая комната"><div class="caption">Уютные комнаты</div></div>
+                    <div class="gallery-item"><img src="images/15.jpeg" alt="Жилая комната (другой ракурс)"><div class="caption">Комфортное размещение</div></div>
+                    <div class="gallery-item"><img src="images/16.jpeg" alt="Санузел"><div class="caption">Санузел в номере</div></div>
+                    <div class="gallery-item"><img src="images/17.jpeg" alt="Душ"><div class="caption">Душ в номере</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Наши контакты</h2>
+                <div class="contact-grid">
+                     <div class="contact-card">
+                        <h3>Офис на Революционной</h3>
+                        <p>г. Минск, ул. Революционная, 12, офис 22<br><strong>Пн-Пт:</strong> 09:00 - 18:00</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Телефоны</h3>
+                        <p><a href="tel:+375296189181">+375 (29) 618-91-81</a></p>
+                        <p><a href="tel:+375333346262">+375 (33) 334-62-62</a></p>
+                        <p><a href="tel:+375173745115">+375 (17) 374-51-15</a></p>
+                    </div>
+                     <div class="contact-card">
+                        <h3>Офис на Бирюзова</h3>
+                        <p>г. Минск, ул. Бирюзова, 10А, офис 204<br><strong>Пн-Пт:</strong> 10:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+
+</body>
+</html>
