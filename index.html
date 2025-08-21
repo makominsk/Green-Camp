@@ -278,6 +278,10 @@
         .description-card ul { list-style: none; padding-left: 0; }
         .description-card li { padding-left: 25px; position: relative; margin-bottom: 10px; }
         .description-card li::before { content: '✔'; position: absolute; left: 0; color: var(--primary-color); font-weight: bold; }
+        .description-card p {
+            text-align: justify;
+            text-indent: 1.5em;
+        }
 
         /* --- Таблица смен --- */
         #schedule { background-color: var(--secondary-color); color: white; }
@@ -298,6 +302,10 @@
         .schedule-table td:nth-child(3) { font-weight: bold; color: var(--accent-color-2); }
         .info-box { background-color: white; color: var(--text-color); padding: 30px; margin-top: 5px; border-top: 4px solid var(--primary-color); border-radius: 0 0 8px 8px; }
         .info-box h3 { color: var(--secondary-color); }
+        .info-box p {
+            text-align: justify;
+            text-indent: 1.5em;
+        }
 
         /* --- Контакты --- */
         #contact { background-color: var(--accent-color-2); color: var(--text-color); }
@@ -531,7 +539,7 @@
                     </table>
                     <div class="info-box">
                         <h3>Условия оплаты и документы</h3>
-                        <p><strong>1 этап – Бронирование:</strong> предоплата 400 рублей. <br><strong>2 этап – Полная оплата:</strong> за 3 недели до выезда.</p>
+                        <p style="text-indent: 0;"><strong>1 этап – Бронирование:</strong> предоплата 400 рублей. <br><strong>2 этап – Полная оплата:</strong> за 3 недели до выезда.</p>
                         <p><strong>В стоимость входит:</strong> проезд автобусом Минск – Жемчужина - Минск; проживание; питание – 6-ти разовое; санаторное лечение; пользование бассейном и оборудованным пляжем санатория; спортивные и развлекательные мероприятия, дискотеки; пользование спортивными площадками; две автобусные экскурсии с входными билетами (в Березинский биосферный заповедник и г. Полоцк); услуги педагогов и аниматора.</p>
                         <p><strong>Необходимые документы:</strong> выписка из амбулаторной карты с отметкой о возможности посещать бассейн (действует один месяц и выдаётся педиатром).</p>
                     </div>
@@ -544,7 +552,7 @@
                 <h2>Галерея</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="images/19.jpg" alt="Территория лагеря (вид сверху)"><div class="caption">Территория лагеря</div></div>
-                    <div class="gallery-item"><img src="images/11.jpg" alt="Главный корпус"><div class="caption">Главный корпус</div></div>
+                    <div class="gallery-item"><img src="images/11.jpg" alt="Главный корпус"><div class="caption">Наш корпус</div></div>
                     <div class="gallery-item"><img src="images/02.jpg" alt="Вид на озеро"><div class="caption">Вид на озеро</div></div>
                     <div class="gallery-item"><img src="images/03.jpg" alt="Пирс у озера"><div class="caption">Пирс</div></div>
                     <div class="gallery-item"><img src="images/04.jpg" alt="Катание на лодке"><div class="caption">Активности на воде</div></div>
@@ -557,8 +565,8 @@
                     <div class="gallery-item"><img src="images/10.jpg" alt="Оздоровительные процедуры"><div class="caption">Оздоровление</div></div>
                     <div class="gallery-item"><img src="images/12.jpeg" alt="Библиотека"><div class="caption">Библиотека</div></div>
                     <div class="gallery-item"><img src="images/13.jpeg" alt="Столовая"><div class="caption">Столовая</div></div>
-                    <div class="gallery-item"><img src="images/14.jpeg" alt="Жилая комната"><div class="caption">Уютные комнаты</div></div>
-                    <div class="gallery-item"><img src="images/15.jpeg" alt="Жилая комната (другой ракурс)"><div class="caption">Комфортное размещение</div></div>
+                    <div class="gallery-item"><img src="images/14.jpeg" alt="Жилая комната"><div class="caption">2-х местная комната</div></div>
+                    <div class="gallery-item"><img src="images/15.jpeg" alt="Жилая комната (другой ракурс)"><div class="caption">3-х местная комната</div></div>
                     <div class="gallery-item"><img src="images/16.jpeg" alt="Санузел"><div class="caption">Санузел в номере</div></div>
                     <div class="gallery-item"><img src="images/17.jpeg" alt="Душ"><div class="caption">Душ в номере</div></div>
                 </div>
@@ -568,10 +576,10 @@
         <section id="about">
             <div class="container">
                 <h2>О нас</h2>
-                <p>Мы - команда туристической компании «ПОДЕВЮС», которая с 1993 года занимается организацией отдыха для детей и взрослых.</p>
-                <p>Для детей у нас есть предложения от классических летних лагерей в Беларуси до отдыха за рубежом. Кроме того, мы проводим различные мероприятия: экскурсии, мастер-классы, выпускные, вечеринки, помогаем организовать праздники.</p>
-                <p>Наша цель - сделать отдых ваших детей незабываемым и полным впечатлений! Мы тщательно подбираем места для отдыха, организуем интересные программы и мероприятия, чтобы все могли провести время весело и с пользой.</p>
-                <p>Если вы ищете надежного партнера для организации летнего отдыха ваших детей, обращайтесь - мы с радостью поможем вам сделать его незабываемым и ярким!</p>
+                <p style="text-align: justify; text-indent: 1.5em;">Мы - команда туристической компании «ПОДЕВЮС», которая с 1993 года занимается организацией отдыха для детей и взрослых.</p>
+                <p style="text-align: justify; text-indent: 1.5em;">Для детей у нас есть предложения от классических летних лагерей в Беларуси до отдыха за рубежом. Кроме того, мы проводим различные мероприятия: экскурсии, мастер-классы, выпускные, вечеринки, помогаем организовать праздники.</p>
+                <p style="text-align: justify; text-indent: 1.5em;">Наша цель - сделать отдых ваших детей незабываемым и полным впечатлений! Мы тщательно подбираем места для отдыха, организуем интересные программы и мероприятия, чтобы все могли провести время весело и с пользой.</p>
+                <p style="text-align: justify; text-indent: 1.5em;">Если вы ищете надежного партнера для организации летнего отдыха ваших детей, обращайтесь - мы с радостью поможем вам сделать его незабываемым и ярким!</p>
             </div>
         </section>
 
