@@ -241,23 +241,25 @@
 
         /* --- Галерея --- */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex; /* Используем flexbox для центрирования и обтекания */
+            flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку */
             gap: 25px;
-            justify-items: center; /* Центрирование элементов по горизонтали в ячейках сетки */
-            align-items: center; /* Центрирование элементов по вертикали в ячейках сетки */
-            justify-content: center; /* Центрирование всей сетки, если она не заполняет всю ширину */
+            justify-content: center; /* Центрирование элементов в текущем ряду */
+            align-items: flex-start; /* Выравнивание элементов по верхнему краю */
         }
-        .gallery-item { overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: white; text-align: center; }
+        .gallery-item {
+            flex: 0 0 300px; /* Фиксированная ширина 300px, не растягивается и не сжимается */
+            max-width: 100%; /* Гарантируем, что элемент не выйдет за пределы родителя на маленьких экранах */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+            text-align: center;
+        }
         .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(20, 72, 119, 0.2); }
         .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
         .gallery-item .caption { font-family: var(--font-main); font-weight: bold; padding: 15px; color: var(--secondary-color); }
-
-        .gallery-wrapper {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
 
         /* --- Описание --- */
         .description-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
@@ -390,6 +392,14 @@
 
         .prev-button:hover, .next-button:hover {
             background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Дополнительные стили для лучшей видимости кнопок навигации */
+        .prev-button, .next-button {
+            background-color: rgba(0,0,0,0.5); /* Полупрозрачный фон для видимости */
+            padding: 20px; /* Увеличиваем область клика */
+            font-size: 24px; /* Увеличиваем размер стрелок */
+            border-radius: 5px; /* Слегка скругляем углы */
         }
     </style>
 </head>
@@ -532,27 +542,25 @@
         <section id="gallery">
             <div class="container">
                 <h2>Галерея</h2>
-                <div class="gallery-wrapper">
-                    <div class="gallery-grid">
-                        <div class="gallery-item"><img src="images/19.jpg" alt="Территория лагеря (вид сверху)"><div class="caption">Территория лагеря</div></div>
-                        <div class="gallery-item"><img src="images/11.jpg" alt="Главный корпус"><div class="caption">Главный корпус</div></div>
-                        <div class="gallery-item"><img src="images/02.jpg" alt="Вид на озеро"><div class="caption">Вид на озеро</div></div>
-                        <div class="gallery-item"><img src="images/03.jpg" alt="Пирс у озера"><div class="caption">Пирс</div></div>
-                        <div class="gallery-item"><img src="images/04.jpg" alt="Катание на лодке"><div class="caption">Активности на воде</div></div>
-                        <div class="gallery-item"><img src="images/05.jpg" alt="Пляж"><div class="caption">Пляжный отдых</div></div>
-                        <div class="gallery-item"><img src="images/07.jpg" alt="Командные игры"><div class="caption">Спорт и команда</div></div>
-                        <div class="gallery-item"><img src="images/08.jpg" alt="Бассейн"><div class="caption">Бассейн</div></div>
-                        <div class="gallery-item"><img src="images/06.jpg" alt="Спортивная площадка"><div class="caption">Спортплощадка</div></div>
-                        <div class="gallery-item"><img src="images/18.jpeg" alt="Игровая площадка"><div class="caption">Игровая площадка</div></div>
-                        <div class="gallery-item"><img src="images/09.jpg" alt="Соляная пещера"><div class="caption">Соляная пещера</div></div>
-                        <div class="gallery-item"><img src="images/10.jpg" alt="Оздоровительные процедуры"><div class="caption">Оздоровление</div></div>
-                        <div class="gallery-item"><img src="images/12.jpeg" alt="Библиотека"><div class="caption">Библиотека</div></div>
-                        <div class="gallery-item"><img src="images/13.jpeg" alt="Столовая"><div class="caption">Столовая</div></div>
-                        <div class="gallery-item"><img src="images/14.jpeg" alt="Жилая комната"><div class="caption">Уютные комнаты</div></div>
-                        <div class="gallery-item"><img src="images/15.jpeg" alt="Жилая комната (другой ракурс)"><div class="caption">Комфортное размещение</div></div>
-                        <div class="gallery-item"><img src="images/16.jpeg" alt="Санузел"><div class="caption">Санузел в номере</div></div>
-                        <div class="gallery-item"><img src="images/17.jpeg" alt="Душ"><div class="caption">Душ в номере</div></div>
-                    </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="images/19.jpg" alt="Территория лагеря (вид сверху)"><div class="caption">Территория лагеря</div></div>
+                    <div class="gallery-item"><img src="images/11.jpg" alt="Главный корпус"><div class="caption">Главный корпус</div></div>
+                    <div class="gallery-item"><img src="images/02.jpg" alt="Вид на озеро"><div class="caption">Вид на озеро</div></div>
+                    <div class="gallery-item"><img src="images/03.jpg" alt="Пирс у озера"><div class="caption">Пирс</div></div>
+                    <div class="gallery-item"><img src="images/04.jpg" alt="Катание на лодке"><div class="caption">Активности на воде</div></div>
+                    <div class="gallery-item"><img src="images/05.jpg" alt="Пляж"><div class="caption">Пляжный отдых</div></div>
+                    <div class="gallery-item"><img src="images/07.jpg" alt="Командные игры"><div class="caption">Спорт и команда</div></div>
+                    <div class="gallery-item"><img src="images/08.jpg" alt="Бассейн"><div class="caption">Бассейн</div></div>
+                    <div class="gallery-item"><img src="images/06.jpg" alt="Спортивная площадка"><div class="caption">Спортплощадка</div></div>
+                    <div class="gallery-item"><img src="images/18.jpeg" alt="Игровая площадка"><div class="caption">Игровая площадка</div></div>
+                    <div class="gallery-item"><img src="images/09.jpg" alt="Соляная пещера"><div class="caption">Соляная пещера</div></div>
+                    <div class="gallery-item"><img src="images/10.jpg" alt="Оздоровительные процедуры"><div class="caption">Оздоровление</div></div>
+                    <div class="gallery-item"><img src="images/12.jpeg" alt="Библиотека"><div class="caption">Библиотека</div></div>
+                    <div class="gallery-item"><img src="images/13.jpeg" alt="Столовая"><div class="caption">Столовая</div></div>
+                    <div class="gallery-item"><img src="images/14.jpeg" alt="Жилая комната"><div class="caption">Уютные комнаты</div></div>
+                    <div class="gallery-item"><img src="images/15.jpeg" alt="Жилая комната (другой ракурс)"><div class="caption">Комфортное размещение</div></div>
+                    <div class="gallery-item"><img src="images/16.jpeg" alt="Санузел"><div class="caption">Санузел в номере</div></div>
+                    <div class="gallery-item"><img src="images/17.jpeg" alt="Душ"><div class="caption">Душ в номере</div></div>
                 </div>
             </div>
         </section>
