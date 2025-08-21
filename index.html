@@ -241,9 +241,10 @@
 
         /* --- Галерея --- */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex; /* Изменено на flexbox для лучшего центрирования */
+            flex-wrap: wrap; /* Разрешить перенос элементов на новую строку */
             gap: 25px;
+            justify-content: center; /* Центрирование элементов в строке */
         }
         .gallery-item { overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: white; text-align: center; }
         .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(20, 72, 119, 0.2); }
@@ -315,6 +316,47 @@
             .menu-toggle .bar { width: 25px; height: 3px; background-color: var(--secondary-color); margin: 4px 0; transition: 0.4s; }
             .schedule-table th, .schedule-table td { padding: 15px 10px; font-size: 0.9em;}
             .hero-content { margin-bottom: 5vh; max-width: 90%; }
+        }
+
+        /* --- Lightbox Styles --- */
+        .lightbox {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top */
+            padding-top: 60px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -513,6 +555,11 @@
         </section>
     </main>
     
+    <div id="lightbox" class="lightbox">
+        <span class="close-button">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" src="" alt="Full size image">
+    </div>
+
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
@@ -520,6 +567,29 @@
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const closeButton = document.querySelector('.close-button');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.style.display = 'block';
+                lightboxImage.src = item.src;
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
         });
     </script>
 
