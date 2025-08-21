@@ -241,10 +241,12 @@
 
         /* --- Галерея --- */
         .gallery-grid {
-            display: flex; /* Изменено на flexbox для лучшего центрирования */
-            flex-wrap: wrap; /* Разрешить перенос элементов на новую строку */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 280px); /* Фиксированная ширина для элементов */
             gap: 25px;
-            justify-content: center; /* Центрирование элементов в строке */
+            justify-items: center; /* Центрирование элементов по горизонтали в ячейках сетки */
+            align-items: center; /* Центрирование элементов по вертикали в ячейках сетки */
+            justify-content: center; /* Центрирование всей сетки, если она не заполняет всю ширину */
         }
         .gallery-item { overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: white; text-align: center; }
         .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(20, 72, 119, 0.2); }
