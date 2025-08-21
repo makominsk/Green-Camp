@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Camp — детский летний лагерь под Минском, Витебское направление</title>
     <meta name="description" content="Детский летний лагерь Green Camp под Минском (Лепель) на берегу озера Щибот. Активный отдых, санаторное лечение, 6-разовое питание для детей 9-14 лет.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/index.html">
+    <meta property="og:title" content="Green Camp — детский летний лагерь под Минском, Витебское направление">
+    <meta property="og:description" content="Детский летний лагерь Green Camp под Минском (Лепель) на берегу озера Щибот. Активный отдых, санаторное лечение, 6-разовое питание для детей 9-14 лет.">
+    <meta property="og:image" content="https://your-domain.com/images/01.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/index.html">
+    <meta property="twitter:title" content="Green Camp — детский летний лагерь под Минском, Витебское направление">
+    <meta property="twitter:description" content="Детский летний лагерь Green Camp под Минском (Лепель) на берегу озера Щибот. Активный отдых, санаторное лечение, 6-разовое питание для детей 9-14 лет.">
+    <meta property="twitter:image" content="https://your-domain.com/images/01.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Green Camp",
+      "description": "Детский летний лагерь Green Camp под Минском (Лепель) на берегу озера Щибот. Активный отдых, санаторное лечение, 6-разовое питание для детей 9-14 лет.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Революционная, 12, офис 22",
+        "addressLocality": "Минск",
+        "addressCountry": "BY"
+      },
+      "telephone": "+375296189181",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "url": "https://your-domain.com/index.html"
+    }
+    </script>
     <style>
         /* --- Подключение шрифтов --- */
         @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Geologica:wght@300;400;700&display=swap');
@@ -379,32 +409,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1 смена</td>
-                                <td>08.06 – 20.06</td>
-                                <td>1 390 рублей</td>
+                            <tr itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="name">1 смена</td>
+                                <td><time itemprop="startDate" datetime="2025-06-08">08.06</time> – <time itemprop="endDate" datetime="2025-06-20">20.06</time></td>
+                                <td itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <span itemprop="price">1 390</span> <span itemprop="priceCurrency">BYN</span>
+                                </td>
                             </tr>
-                             <tr>
-                                <td>2 смена</td>
-                                <td>22.06 – 04.07</td>
-                                <td rowspan="4">1 500 рублей</td>
+                             <tr itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="name">2 смена</td>
+                                <td><time itemprop="startDate" datetime="2025-06-22">22.06</time> – <time itemprop="endDate" datetime="2025-07-04">04.07</time></td>
+                                <td rowspan="4" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <span itemprop="price">1 500</span> <span itemprop="priceCurrency">BYN</span>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>3 смена</td>
-                                <td>06.07 – 18.07 (или 07.07 – 19.07)</td>
+                            <tr itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="name">3 смена</td>
+                                <td><time itemprop="startDate" datetime="2025-07-06">06.07</time> – <time itemprop="endDate" datetime="2025-07-18">18.07</time> (или <time itemprop="startDate" datetime="2025-07-07">07.07</time> – <time itemprop="endDate" datetime="2025-07-19">19.07</time>)</td>
                             </tr>
-                            <tr>
-                                <td>4 смена</td>
-                                <td>20.07 – 01.08 (или 21.07 – 02.08)</td>
+                            <tr itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="name">4 смена</td>
+                                <td><time itemprop="startDate" datetime="2025-07-20">20.07</time> – <time itemprop="endDate" datetime="2025-08-01">01.08</time> (или <time itemprop="startDate" datetime="2025-07-21">21.07</time> – <time itemprop="endDate" datetime="2025-08-02">02.08</time>)</td>
                             </tr>
-                             <tr>
-                                <td>5 смена</td>
-                                <td>03.08 – 15.08</td>
+                             <tr itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="name">5 смена</td>
+                                <td><time itemprop="startDate" datetime="2025-08-03">03.08</time> – <time itemprop="endDate" datetime="2025-08-15">15.08</time></td>
                             </tr>
-                            <tr>
-                                <td>6 смена</td>
-                                <td>16.08 – 29.08 (или 17.08 - 28.08)</td>
-                                <td>1 390 рублей</td>
+                            <tr itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="name">6 смена</td>
+                                <td><time itemprop="startDate" datetime="2025-08-16">16.08</time> – <time itemprop="endDate" datetime="2025-08-29">29.08</time> (или <time itemprop="startDate" datetime="2025-08-17">17.08</time> - <time itemprop="endDate" datetime="2025-08-28">28.08</time>)</td>
+                                <td itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <span itemprop="price">1 390</span> <span itemprop="priceCurrency">BYN</span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -422,24 +458,24 @@
             <div class="container">
                 <h2>Галерея</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="images/19.jpg" alt="Детский лагерь Green Camp — территория лагеря сверху"><div class="caption">Территория лагеря</div></div>
-                    <div class="gallery-item"><img src="images/11.jpg" alt="Детский лагерь Green Camp — главный корпус"><div class="caption">Главный корпус</div></div>
-                    <div class="gallery-item"><img src="images/02.jpg" alt="Детский лагерь Green Camp — вид на озеро Щибот"><div class="caption">Вид на озеро</div></div>
-                    <div class="gallery-item"><img src="images/03.jpg" alt="Детский лагерь Green Camp — пирс у озера"><div class="caption">Пирс</div></div>
-                    <div class="gallery-item"><img src="images/04.jpg" alt="Детский лагерь Green Camp — катание на лодке"><div class="caption">Активности на воде</div></div>
-                    <div class="gallery-item"><img src="images/05.jpg" alt="Детский лагерь Green Camp — пляж на озере Щибот"><div class="caption">Пляжный отдых</div></div>
-                    <div class="gallery-item"><img src="images/07.jpg" alt="Детский лагерь Green Camp — командные игры на свежем воздухе"><div class="caption">Спорт и команда</div></div>
-                    <div class="gallery-item"><img src="images/08.jpg" alt="Детский лагерь Green Camp — бассейн"><div class="caption">Бассейн</div></div>
-                    <div class="gallery-item"><img src="images/06.jpg" alt="Детский лагерь Green Camp — спортивная площадка"><div class="caption">Спортплощадка</div></div>
-                    <div class="gallery-item"><img src="images/18.jpeg" alt="Детский лагерь Green Camp — игровая площадка"><div class="caption">Игровая площадка</div></div>
-                    <div class="gallery-item"><img src="images/09.jpg" alt="Детский лагерь Green Camp — соляная пещера"><div class="caption">Соляная пещера</div></div>
-                    <div class="gallery-item"><img src="images/10.jpg" alt="Детский лагерь Green Camp — оздоровительные процедуры"><div class="caption">Оздоровление</div></div>
-                    <div class="gallery-item"><img src="images/12.jpeg" alt="Детский лагерь Green Camp — библиотека"><div class="caption">Библиотека</div></div>
-                    <div class="gallery-item"><img src="images/13.jpeg" alt="Детский лагерь Green Camp — столовая"><div class="caption">Столовая</div></div>
-                    <div class="gallery-item"><img src="images/14.jpeg" alt="Детский лагерь Green Camp — жилая комната"><div class="caption">Уютные комнаты</div></div>
-                    <div class="gallery-item"><img src="images/15.jpeg" alt="Детский лагерь Green Camp — жилая комната, другой ракурс"><div class="caption">Комфортное размещение</div></div>
-                    <div class="gallery-item"><img src="images/16.jpeg" alt="Детский лагерь Green Camp — санузел в номере"><div class="caption">Санузел в номере</div></div>
-                    <div class="gallery-item"><img src="images/17.jpeg" alt="Детский лагерь Green Camp — душ в номере"><div class="caption">Душ в номере</div></div>
+                    <div class="gallery-item"><img src="images/19.jpg" alt="Территория лагеря (вид сверху)"><div class="caption">Территория лагеря</div></div>
+                    <div class="gallery-item"><img src="images/11.jpg" alt="Главный корпус"><div class="caption">Главный корпус</div></div>
+                    <div class="gallery-item"><img src="images/02.jpg" alt="Вид на озеро"><div class="caption">Вид на озеро</div></div>
+                    <div class="gallery-item"><img src="images/03.jpg" alt="Пирс у озера"><div class="caption">Пирс</div></div>
+                    <div class="gallery-item"><img src="images/04.jpg" alt="Катание на лодке"><div class="caption">Активности на воде</div></div>
+                    <div class="gallery-item"><img src="images/05.jpg" alt="Пляж"><div class="caption">Пляжный отдых</div></div>
+                    <div class="gallery-item"><img src="images/07.jpg" alt="Командные игры"><div class="caption">Спорт и команда</div></div>
+                    <div class="gallery-item"><img src="images/08.jpg" alt="Бассейн"><div class="caption">Бассейн</div></div>
+                    <div class="gallery-item"><img src="images/06.jpg" alt="Спортивная площадка"><div class="caption">Спортплощадка</div></div>
+                    <div class="gallery-item"><img src="images/18.jpeg" alt="Игровая площадка"><div class="caption">Игровая площадка</div></div>
+                    <div class="gallery-item"><img src="images/09.jpg" alt="Соляная пещера"><div class="caption">Соляная пещера</div></div>
+                    <div class="gallery-item"><img src="images/10.jpg" alt="Оздоровительные процедуры"><div class="caption">Оздоровление</div></div>
+                    <div class="gallery-item"><img src="images/12.jpeg" alt="Библиотека"><div class="caption">Библиотека</div></div>
+                    <div class="gallery-item"><img src="images/13.jpeg" alt="Столовая"><div class="caption">Столовая</div></div>
+                    <div class="gallery-item"><img src="images/14.jpeg" alt="Жилая комната"><div class="caption">Уютные комнаты</div></div>
+                    <div class="gallery-item"><img src="images/15.jpeg" alt="Жилая комната (другой ракурс)"><div class="caption">Комфортное размещение</div></div>
+                    <div class="gallery-item"><img src="images/16.jpeg" alt="Санузел"><div class="caption">Санузел в номере</div></div>
+                    <div class="gallery-item"><img src="images/17.jpeg" alt="Душ"><div class="caption">Душ в номере</div></div>
                 </div>
             </div>
         </section>
