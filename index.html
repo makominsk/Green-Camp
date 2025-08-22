@@ -350,13 +350,13 @@
         }
 
         .gallery-item {
-            width: 100%;
-            max-width: 320px;
+            width: 115%;
+            max-width: 368px;
             overflow: hidden;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: var(--card-bg);
+            background-color: var(--primary-color);
             cursor: pointer;
             /* Добавляем градиентную рамку */
             position: relative;
@@ -595,14 +595,14 @@
             text-align: center; 
         }
 
-        .contact-card { 
-            background-color: rgba(255, 255, 255, 0.9); 
-            padding: 40px; 
-            border-radius: var(--radius-md); 
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
+.contact-card { 
+    background-color: #ffffff; 
+    padding: 46px; 
+    border-radius: var(--radius-md); 
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
 
         .contact-card:hover {
             transform: translateY(-5px);
@@ -988,6 +988,26 @@
                 </div>
             </div>
         </section>
+
+<section id="maps" style="background-color: white; padding: 50px 0;">
+    <div class="container">
+        <h2>Наши офисы на карте</h2>
+        <div class="contact-grid">
+<div class="contact-card">
+    <h3>Офис на Революционной</h3>
+    <a href="https://yandex.ru/maps/?ll=27.552129,53.903239&z=17&pt=27.552129,53.903239,pm2rdm" target="_blank">
+        <iframe class="map-iframe" src="https://yandex.ru/map-widget/v1/?ll=27.552129,53.903239&z=17&pt=27.552129,53.903239,pm2rdm" allowfullscreen="" loading="lazy"></iframe>
+    </a>
+</div>
+<div class="contact-card">
+    <h3>Офис на Бирюзова</h3>
+    <a href="https://yandex.ru/maps/?ll=27.513466,53.912961&z=17&pt=27.513466,53.912961,pm2rdm" target="_blank">
+        <iframe class="map-iframe" src="https://yandex.ru/map-widget/v1/?ll=27.513466,53.912961&z=17&pt=27.513466,53.912961,pm2rdm" allowfullscreen="" loading="lazy"></iframe>
+    </a>
+</div>
+        </div>
+    </div>
+</section>
     </main>
     
     <div id="lightbox" class="lightbox">
